@@ -1,25 +1,16 @@
 <?php
+<<<<<<< HEAD
 require_once('../Librerias/render.php');
+=======
+final class artista
+{
+>>>>>>> 0013f2f3088d22530d606a1132be436cce847156
 
-$objHTML = new RenderHTML();
+    public function __construct($nombre) {
+        $this->nombre=$nombre;
+    }
+    public $nombre;
 
-$objHTML->RenderHeader();
-?>
+}
 
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
-
-<?php
-    $objHTML->RenderFooter();
 ?>
