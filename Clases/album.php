@@ -1,5 +1,5 @@
 <?php
-require_once('Librerias/render.php');
+require_once('../Librerias/render.php');
 
 $objHTML = new RenderHTML();
 

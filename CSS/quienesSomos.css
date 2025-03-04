@@ -1,0 +1,53 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('/src/img_quienesSomos/img_quienesSomos.avif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    /* Efecto de oscurecimiento */
+}
+
+.content {
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 1.5rem;
+}
+
+.nosotros h2 {
+    font-size: 2.5rem;
+    margin: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.nosotros p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+}

@@ -18,7 +18,7 @@ class RenderHTML
     <title>ARJ Records</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="../CSS/all.css">
+    <link rel="stylesheet" href="../CSS/index.css">
     </head>
 
     <body>
@@ -29,18 +29,21 @@ class RenderHTML
                 <img src="/src/logo/logoARJ.png" alt="Logo">
             </a>
 
+            <!-- Barra de búsqueda centrada -->
             <div class="search-container mx-auto">
-                <form class="d-flex" method="post">
-                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search" name="buscar" id="buscar">
+                <form class="d-flex">
+                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search">
                     <button class="btn search-button" type="submit">🔍</button>
                 </form>
             </div>
 
+            <!-- Botón de menú en móviles -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Menú de navegación -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/index.php">Inicio</a></li>
@@ -78,7 +81,6 @@ class RenderHTML
         </html>
         ';
     }
-    
 }
 
 ?>
