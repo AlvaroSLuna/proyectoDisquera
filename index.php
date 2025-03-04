@@ -1,5 +1,7 @@
 <?php
-require_once('Librerias/render.php');
+require_once('Librerias/render.php','/Librerias/buscarArtistaAPI.php');
+
+
 
 $objHTML = new RenderHTML();
 

@@ -31,8 +31,8 @@ class RenderHTML
 
             <!-- Barra de búsqueda centrada -->
             <div class="search-container mx-auto">
-                <form class="d-flex">
-                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search">
+                <form class="d-flex" method="post">
+                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search" name="buscar" id="buscar">
                     <button class="btn search-button" type="submit">🔍</button>
                 </form>
             </div>
