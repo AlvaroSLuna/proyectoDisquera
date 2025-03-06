@@ -52,12 +52,14 @@ class RenderHTML
                         <a class="nav-link dropdown-toggle" href="#" id="artistasDropdown" role="button"
                             data-bs-toggle="dropdown">Artistas</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Manolo</a></li>
-                            <li><a class="dropdown-item" href="#">El</a></li>
-                            <li><a class="dropdown-item" href="#">Del</a></li>
-                            <li><a class="dropdown-item" href="#">Bombo</a></li>
+                            <li><a class="dropdown-item" href="#">Quevedo</a></li>
+                            <li><a class="dropdown-item" href="#">Kendric Lamar</a></li>
+                            <li><a class="dropdown-item" href="#">Kaze</a></li>
+                            
                         </ul>
                     </li>
+                                        <li class="nav-item"><a class="nav-link" href="/Views/quienesSomos.php">Quienes Somos</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="/contacto.php">Contactanos</a></li>
                 </ul>
             </div>
