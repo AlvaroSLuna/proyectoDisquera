@@ -3,13 +3,20 @@ include_once("../Clases/artista.php");
 require_once('../Librerias/render.php');
 include_once("../Librerias/mysql.php");
 
-// $consulta = "SELECT * FROM `artistas` WHERE id=1;";
+if (isset($_GET['artista'])) {
+    $artistaId = $_GET['artista'];
 
-// $artista = Conexion($consulta);
+    $consulta = "SELECT * FROM `artistas` WHERE id="."$artistaId".";";
 
-// $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id']);
+    $artista = Conexion($consulta);
+    
+    $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id']);
+    
+    print($artista);
+}else{
+    $artistaId = null;
+}
 
-// print($artista);
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +51,11 @@ include_once("../Librerias/mysql.php");
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="artistasDropdown" role="button"
                             data-bs-toggle="dropdown">Artistas</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Quevedo</a></li>
-                            <li><a class="dropdown-item" href="#">Kendric Lamar</a></li>
-                            <li><a class="dropdown-item" href="#">Kaze</a></li>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Views/artista.php?artista=1">Quevedo</a></li>
+                            <li><a class="dropdown-item" href="/Views/artista.php?artista=2">Kendric Lamar</a></li>
+                            <li><a class="dropdown-item" href="/Views/artista.php?artista=3">Kaze</a></li>
+                            
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/Views/quienesSomos.php">Quienes Somos</a></li>
@@ -61,12 +69,12 @@ include_once("../Librerias/mysql.php");
     <!-- Inicio de la pagina artista -->
 
     <div class="artist-hero">
-        <img src="/src/kaze/perfilKaze.webp" alt="Artista" class="artist-image">
+        <img src=<?php echo $objArtista->foto; ?> alt="Artista" class="artist-image">
         <div class="overlay"></div>
         <div class="content">
-            <p class="genre">Rap</p>
+            
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1 class="artist-name">Kaze</h1>
+            <h1 class="artist-name"><?php echo $objArtista->nombre; ?></h1>
             <p class="follow-text">¡Sígueme!</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -259,12 +267,10 @@ include_once("../Librerias/mysql.php");
     </section>
 
     <div class="bio-section">
-        <img src="/src/kaze/perfilKaze.webp" alt="Kaze">
-        <h2>Kaze</h2>
+        <img src=<?php echo $objArtista->foto; ?> alt="Kaze">
+        <h2><?php echo $objArtista->nombre; ?></h2>
         <p>
-            Kaze es un rapero y cantante español conocido por su estilo único y su habilidad para mezclar rap con
-            sonidos frescos e innovadores. Nació en Cartagena, España, y comenzó su carrera en el underground,
-            ganando reconocimiento por su autenticidad y letras profundas.
+        <?php echo $objArtista->descripcion; ?>
         </p>
         <p>
             Con un crecimiento constante en la escena musical, ha lanzado varios éxitos que han acumulado millones
