@@ -1,25 +1,17 @@
 <?php
-require_once('../Librerias/render.php');
+class Canciones {
+    public function __construct($id,$nombre,$foto,$duracion,$idArtista) {
+        $this->id=$id;
+        $this->nombre=$nombre;
+        $this->foto=$foto;
+        $this->duracion=$duracion;
+        $this->idArtista=$idArtista;
+    }
 
-$objHTML = new RenderHTML();
-
-$objHTML->RenderHeader();
-?>
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
-
-<?php
-    $objHTML->RenderFooter();
+    public $id;
+    public $nombre;
+    public $foto;
+    public $duracion;
+    public $idArtista;
+}
 ?>
