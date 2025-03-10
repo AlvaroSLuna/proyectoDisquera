@@ -29,14 +29,6 @@ class RenderHTML
                 <img src="/src/logo/logoARJ.png" alt="Logo">
             </a>
 
-            <!-- Barra de búsqueda centrada -->
-            <div class="search-container mx-auto">
-                <form class="d-flex">
-                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn search-button" type="submit">🔍</button>
-                </form>
-            </div>
-
             <!-- Botón de menú en móviles -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

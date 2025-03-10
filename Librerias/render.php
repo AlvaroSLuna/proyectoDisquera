@@ -29,13 +29,6 @@ class RenderHTML
                 <img src="/src/logo/logoARJ.png" alt="Logo">
             </a>
 
-            <div class="search-container mx-auto">
-                <form class="d-flex" method="post">
-                    <input class="form-control search-input" type="search" placeholder="Buscar..." aria-label="Search" name="buscar" id="buscar">
-                    <button class="btn search-button" type="submit">🔍</button>
-                </form>
-            </div>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
