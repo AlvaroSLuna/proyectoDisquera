@@ -138,58 +138,7 @@ if (isset($_GET['artista'])) {
     <iframe width="560" height="315" src="<?php echo $objArtista->videoclip ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
-    <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
-        <h2 class="section-title text-white">Singles</h2>
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mt-3">
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album1.jpg" class="card-img-top" alt="Album 1">
-                    <div class="card-body">
-                        <p class="card-text">Canción 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album2.jpg" class="card-img-top" alt="Album 2">
-                    <div class="card-body">
-                        <p class="card-text">Canción 2</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album3.jpg" class="card-img-top" alt="Album 3">
-                    <div class="card-body">
-                        <p class="card-text">Canción 3</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album4.jpg" class="card-img-top" alt="Album 4">
-                    <div class="card-body">
-                        <p class="card-text">Canción 4</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album5.jpg" class="card-img-top" alt="Album 5">
-                    <div class="card-body">
-                        <p class="card-text">Canción 5</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
+    
 
     <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
         <h2 class="section-title text-white">Discografia con Nosotros</h2>
