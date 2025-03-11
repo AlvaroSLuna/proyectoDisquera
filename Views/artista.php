@@ -1,19 +1,31 @@
 <?php
 include_once("../Clases/artista.php");
+include_once("../Clases/cancion.php");
 require_once('../Librerias/render.php');
 include_once("../Librerias/mysql.php");
 
 if (isset($_GET['artista'])) {
     $artistaId = $_GET['artista'];
 
-    $consulta = "SELECT * FROM `artistas` WHERE id="."$artistaId".";";
+    $consultaArtistas = "SELECT * FROM `artistas` WHERE id=" . "$artistaId" . ";";
+    $resultado = Conexion($consultaArtistas);
 
-    $artista = Conexion($consulta);
+    mysqli_data_seek($resultado, 0);
+
+        $artista = mysqli_fetch_array($resultado);
+
+    $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id'], $artista['instagram'], $artista['youtube'], $artista['facebook'], $artista['X'], $artista['spotify'], $artista['deezer'], $artista['tidal'], $artista['music'], $artista['videoclip']);
+
     
-    $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id']);
+
+
+    $consultaCancion = "SELECT * FROM `canciones` WHERE idArtista=". "$artistaId" . ";";
+    $canciones = Conexion($consultaCancion);
+
     
-    print($artista);
-}else{
+
+
+} else {
     $artistaId = null;
 }
 
@@ -51,11 +63,11 @@ if (isset($_GET['artista'])) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="artistasDropdown" role="button"
                             data-bs-toggle="dropdown">Artistas</a>
-                            <ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/Views/artista.php?artista=1">Quevedo</a></li>
                             <li><a class="dropdown-item" href="/Views/artista.php?artista=2">Kendric Lamar</a></li>
                             <li><a class="dropdown-item" href="/Views/artista.php?artista=3">Kaze</a></li>
-                            
+
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/Views/quienesSomos.php">Quienes Somos</a></li>
@@ -72,74 +84,40 @@ if (isset($_GET['artista'])) {
         <img src=<?php echo $objArtista->foto; ?> alt="Artista" class="artist-image">
         <div class="overlay"></div>
         <div class="content">
-            
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <h1 class="artist-name"><?php echo $objArtista->nombre; ?></h1>
             <p class="follow-text">¡Sígueme!</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="<?php echo $objArtista->instagram ?>"><i class="fab fa-instagram"></i></a>
+                <a href="<?php echo $objArtista->youtube ?>"><i class="fab fa-youtube"></i></a>
+                <a href="<?php echo $objArtista->facebook ?>"><i class="fab fa-facebook"></i></a>
+                <a href="<?php echo $objArtista->x ?>"><i class="fab fa-x-twitter"></i></a>
             </div>
         </div>
     </div>
     <br>
     <br>
     <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
-        <h2 class="section-title text-white">Últimas Novedades</h2>
+        <h2 class="section-title text-white">Canciones destacadas</h2>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mt-3">
 
-            <div class="col">
+            <?php 
+            
+                foreach ($canciones as $cancion) {
+                    echo '<div class="col">
                 <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album1.jpg" class="card-img-top" alt="Album 1">
+                    <img src='.$cancion['foto'].' class="card-img-top" alt="Album 1">
                     <div class="card-body">
-                        <h5 class="card-title">Novedad 1</h5>
-                        <p class="card-text">Canción 1</p>
+                        <h5 class="card-title">'.$cancion['nombre'].'</h5>
+                        <p class="card-text">'.$cancion['duracion'].'</p>
                     </div>
                 </div>
-            </div>
+            </div>';
+                }
+            ?>
 
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album2.jpg" class="card-img-top" alt="Album 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Novedad 2</h5>
-                        <p class="card-text">Canción 2</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album3.jpg" class="card-img-top" alt="Album 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Novedad 3</h5>
-                        <p class="card-text">Canción 3</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album4.jpg" class="card-img-top" alt="Album 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Novedad 4</h5>
-                        <p class="card-text">Canción 4</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album5.jpg" class="card-img-top" alt="Album 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Novedad 5</h5>
-                        <p class="card-text">Canción 5</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         </div>
     </section>
@@ -149,15 +127,15 @@ if (isset($_GET['artista'])) {
             <span class="active">Escucha</span>
         </div>
         <div class="buttons">
-            <a href="https://open.spotify.com" target="_blank" class="button spotify">Spotify</a>
-            <a href="https://www.deezer.com" target="_blank" class="button deezer">Deezer</a>
-            <a href="https://tidal.com" target="_blank" class="button tidal">TIDAL</a>
-            <a href="https://music.apple.com" target="_blank" class="button apple-music">MUSIC</a>
+            <a href="<?php echo $objArtista->spotify ?>" target="_blank" class="button spotify">Spotify</a>
+            <a href="<?php echo $objArtista->deezer ?>" target="_blank" class="button deezer">Deezer</a>
+            <a href="<?php echo $objArtista->tidal ?>" target="_blank" class="button tidal">TIDAL</a>
+            <a href="<?php echo $objArtista->music ?>" target="_blank" class="button apple-music">MUSIC</a>
         </div>
     </div>
 
     <div class="video-section">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/gBF2TqxjJSk" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="<?php echo $objArtista->videoclip ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
@@ -270,7 +248,7 @@ if (isset($_GET['artista'])) {
         <img src=<?php echo $objArtista->foto; ?> alt="Kaze">
         <h2><?php echo $objArtista->nombre; ?></h2>
         <p>
-        <?php echo $objArtista->descripcion; ?>
+            <?php echo $objArtista->descripcion; ?>
         </p>
         <p>
             Con un crecimiento constante en la escena musical, ha lanzado varios éxitos que han acumulado millones

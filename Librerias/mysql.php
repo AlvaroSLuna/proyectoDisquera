@@ -10,10 +10,8 @@ function Conexion($consultaSql)
 
 
         $resultado = mysqli_query($mysqli, $consultaSql);
-        mysqli_data_seek($resultado, 0);
+        
 
-        $extraido = mysqli_fetch_array($resultado);
-
-        return $extraido;
+        return $resultado;
     }
 }
