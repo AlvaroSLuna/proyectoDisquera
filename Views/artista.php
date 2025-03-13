@@ -1,30 +1,41 @@
 <?php
 include_once("../Clases/artista.php");
 include_once("../Clases/cancion.php");
+include_once("../Clases/album.php");
 require_once('../Librerias/render.php');
 include_once("../Librerias/mysql.php");
 
 if (isset($_GET['artista'])) {
     $artistaId = $_GET['artista'];
-
+    //Consulta para artista
     $consultaArtistas = "SELECT * FROM `artistas` WHERE id=" . "$artistaId" . ";";
     $resultado = Conexion($consultaArtistas);
 
     mysqli_data_seek($resultado, 0);
 
-        $artista = mysqli_fetch_array($resultado);
+    $artista = mysqli_fetch_array($resultado);
 
     $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id'], $artista['instagram'], $artista['youtube'], $artista['facebook'], $artista['X'], $artista['spotify'], $artista['deezer'], $artista['tidal'], $artista['music'], $artista['videoclip']);
 
-    
 
 
-    $consultaCancion = "SELECT * FROM `canciones` WHERE idArtista=". "$artistaId" . ";";
+    //Consulta para canciones
+    $consultaCancion = "SELECT * FROM `canciones` WHERE idArtista=" . "$artistaId" . ";";
     $canciones = Conexion($consultaCancion);
+    $arrayObjCancion = [];
+    foreach ($canciones as $cancion) {
+        $objCancion = new Canciones($cancion['id'], $cancion['nombre'], $cancion['foto'], $cancion['reproducciones'], $cancion['idArtista']);
+        array_push($arrayObjCancion, $objCancion);
+    }
 
-    
-
-
+    //Consultas para album
+    $consultaAlbum = "SELECT * FROM `albumes` WHERE idArtista=" . "$artistaId" . ";";
+    $albumes = Conexion($consultaAlbum);
+    $arrayObjAlbum = [];
+    foreach ($albumes as $album) {
+        $objAlbum = new Album($album['id'], $album['nombre'], $album['duracion'], $album['foto'], $album['fechaLanzamiento'], $album['idArtista']);
+        array_push($arrayObjAlbum, $objAlbum);
+    }
 } else {
     $artistaId = null;
 }
@@ -97,27 +108,27 @@ if (isset($_GET['artista'])) {
     </div>
     <br>
     <br>
-    <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
-        <h2 class="section-title text-white">Canciones destacadas</h2>
+    <section class="container my-5 text-center text-white py-5 rounded" style="background-color: #111;">
+        <h2 class="section-title text-white">Canciones Destacadas</h2>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mt-3">
 
-            <?php 
-            
-                foreach ($canciones as $cancion) {
-                    echo '<div class="col">
+            <?php
+            //Canciones
+            for ($i = 0; $i < count($arrayObjCancion); $i++) {
+                echo '<div class="col">
                 <div class="card bg-dark text-white h-100">
-                    <img src='.$cancion['foto'].' class="card-img-top" alt="Album 1">
+                    <img src=' . $arrayObjCancion[$i]->foto . ' class="card-img-top" alt="Album 1">
                     <div class="card-body">
-                        <h5 class="card-title">'.$cancion['nombre'].'</h5>
-                        <p class="card-text">'.$cancion['duracion'].'</p>
+                        <h5 class="card-title">' . $arrayObjCancion[$i]->nombre . '</h5>
+                        <p class="card-text">' . $arrayObjCancion[$i]->reproducciones . '</p>
                     </div>
                 </div>
             </div>';
-                }
+            }
             ?>
 
-            
+
         </div>
         </div>
     </section>
@@ -135,60 +146,32 @@ if (isset($_GET['artista'])) {
     </div>
 
     <div class="video-section">
-    <iframe width="560" height="315" src="<?php echo $objArtista->videoclip ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="<?php echo $objArtista->videoclip ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
-    
+
 
     <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
         <h2 class="section-title text-white">Discografia con Nosotros</h2>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mt-3">
 
-            <div class="col">
+            <?php
+            //Albumes
+            for ($i = 0; $i < count($arrayObjAlbum); $i++) {
+                echo '<div class="col">
                 <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album1.jpg" class="card-img-top" alt="Album 1">
+                    <img src=' . $arrayObjAlbum[$i]->foto . ' class="card-img-top" alt="Album 1">
                     <div class="card-body">
-                        <p class="card-text">Album 1</p>
+                        <h5 class="card-title">' . $arrayObjAlbum[$i]->nombre . '</h5>
+                        <p>' . $arrayObjAlbum[$i]->fechaLanzamiento . '</p>
                     </div>
                 </div>
-            </div>
+            </div>';
+            }
+            ?>
 
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album2.jpg" class="card-img-top" alt="Album 2">
-                    <div class="card-body">
-                        <p class="card-text">Album 2</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album3.jpg" class="card-img-top" alt="Album 3">
-                    <div class="card-body">
-                        <p class="card-text">Album 3</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album4.jpg" class="card-img-top" alt="Album 4">
-                    <div class="card-body">
-                        <p class="card-text">Album 4</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-dark text-white h-100">
-                    <img src="src/img_carrusel/album5.jpg" class="card-img-top" alt="Album 5">
-                    <div class="card-body">
-                        <p class="card-text">Album 5</p>
-                    </div>
-                </div>
-            </div>
         </div>
         </div>
     </section>
