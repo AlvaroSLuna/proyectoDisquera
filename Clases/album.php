@@ -1,25 +1,21 @@
 <?php
-require_once('../Librerias/render.php');
+final class Album 
+{
+    public function __construct($id,$nombre,$duracion,$foto,$fechaLanzamiento,$idArtista) {
+        $this->id=$id;
+        $this->nombre=$nombre;
+        $this->duracion=$duracion;
+        $this->foto=$foto;
+        $this->fechaLanzamiento=$fechaLanzamiento;
+        $this->idArtista=$idArtista;
+    }
 
-$objHTML = new RenderHTML();
+    public $id;
+    public $nombre;
+    public $duracion;
+    public $foto;
+    public $fechaLanzamiento;
+    public $idArtista;
+}
 
-$objHTML->RenderHeader();
-?>
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
-
-<?php
-    $objHTML->RenderFooter();
 ?>
