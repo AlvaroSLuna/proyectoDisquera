@@ -1,10 +1,10 @@
 <?php
 final class Album 
 {
-    public function __construct($id,$nombre,$duracion,$foto,$fechaLanzamiento,$idArtista) {
+    public function __construct($id,$nombre,$numCanciones,$foto,$fechaLanzamiento,$idArtista) {
         $this->id=$id;
         $this->nombre=$nombre;
-        $this->duracion=$duracion;
+        $this->numCanciones=$numCanciones;
         $this->foto=$foto;
         $this->fechaLanzamiento=$fechaLanzamiento;
         $this->idArtista=$idArtista;
@@ -12,7 +12,7 @@ final class Album
 
     public $id;
     public $nombre;
-    public $duracion;
+    public $numCanciones;
     public $foto;
     public $fechaLanzamiento;
     public $idArtista;

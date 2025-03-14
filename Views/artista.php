@@ -33,7 +33,7 @@ if (isset($_GET['artista'])) {
     $albumes = Conexion($consultaAlbum);
     $arrayObjAlbum = [];
     foreach ($albumes as $album) {
-        $objAlbum = new Album($album['id'], $album['nombre'], $album['duracion'], $album['foto'], $album['fechaLanzamiento'], $album['idArtista']);
+        $objAlbum = new Album($album['id'], $album['nombre'], $album['numCanciones'], $album['foto'], $album['fechaLanzamiento'], $album['idArtista']);
         array_push($arrayObjAlbum, $objAlbum);
     }
 } else {
