@@ -18,16 +18,15 @@ $objHTML->RenderHeader();
     <link rel="stylesheet" href="/CSS/quienesSomos.css">
 </head>
 <body>
-<div class="hero">
+    <div class="hero">
         <div class="overlay"></div>
         <div class="content">
             <h1>QUIENES SOMOS</h1>
             <p>ARJ RECORDS, la casa de tus artistas favoritos</p>
         </div>
     </div>
-
+    <br><br>
     <div class="nosotros">
-        <h2>¿Quiénes Somos?</h2>
         <p>En ARJ Records, vivimos y respiramos música. Somos un sello discográfico independiente dedicado a descubrir, apoyar y potenciar el talento artístico, brindando a nuestros músicos las herramientas necesarias para llevar su sonido al siguiente nivel.
         <br><br>
         Desde nuestra fundación en 2012, hemos trabajado con artistas de diversos géneros, apostando por la autenticidad y la creatividad en cada producción. Creemos en la música como un medio para conectar con el mundo, y nos esforzamos por construir un ecosistema en el que los artistas puedan crecer, desarrollarse y compartir su arte con una audiencia global.

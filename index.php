@@ -29,7 +29,7 @@ $objHTML->RenderHeader();
         <span class="visually-hidden">Siguiente</span>
     </button>
 </div>
-
+................................................................
 <section class="music-section text-center text-white py-5" style="background-color: #111;">
     <div class="container">
         <h2 class="fw-bold">DONDE VIVE LA MÚSICA</h2>
