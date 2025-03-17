@@ -2,13 +2,11 @@
 
 class RenderHTML
 {
-    public function __construct(){
-
-    }
+    public function __construct() {}
 
     public function RenderHeader()
     {
-    echo '
+        echo '
     <!DOCTYPE html>
     <html lang="es">
 
@@ -72,7 +70,4 @@ class RenderHTML
         </html>
         ';
     }
-    
 }
-
-?>
