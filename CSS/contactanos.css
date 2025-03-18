@@ -81,11 +81,40 @@ h3 {
     align-items: center;
   }
 
-  .formulario button {
+  .formulario #enviar {
     background-color: red;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+  }
+
+  .btn-privacy {
+    font-size: 0.8rem; 
+    padding: 5px 10px; 
+    background-color: #f0f0f0; 
+    color: black; 
+    border: 1px solid #ccc; 
+    box-shadow: none; 
+    text-decoration: none; 
+  }
+
+  .btn-privacy:hover {
+    background-color: #e0e0e0; 
+    color: #555; 
+    border-color: #bbb; 
+  }
+
+  .modal-header {
+    color: black;
+  }
+
+  .modal-body {
+    color: black;
+  }
+
+  .modal-footer button {
+    color: white;
+    background-color: red;
   }
