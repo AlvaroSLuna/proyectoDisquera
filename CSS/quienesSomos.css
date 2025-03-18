@@ -5,7 +5,7 @@ body {
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100vh; 
     background: url('/src/img_quienesSomos/img_quienesSomos.avif') no-repeat center center/cover;
     display: flex;
     justify-content: center;
@@ -20,7 +20,6 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    /* Efecto de oscurecimiento */
 }
 
 .content {
