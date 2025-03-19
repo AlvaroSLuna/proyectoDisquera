@@ -18,6 +18,7 @@ $objHTML->RenderHeader();
     <link rel="stylesheet" href="/CSS/quienesSomos.css">
 </head>
 <body>
+    <!--Foto de fondo con ancho de pantalla completo-->
     <div class="hero">
         <div class="overlay"></div>
         <div class="content">
@@ -26,6 +27,8 @@ $objHTML->RenderHeader();
         </div>
     </div>
     <br><br>
+
+    <!--Texto con información sobre nosotros-->
     <div class="nosotros">
         <p>En ARJ Records, vivimos y respiramos música. Somos un sello discográfico independiente dedicado a descubrir, apoyar y potenciar el talento artístico, brindando a nuestros músicos las herramientas necesarias para llevar su sonido al siguiente nivel.
         <br><br>

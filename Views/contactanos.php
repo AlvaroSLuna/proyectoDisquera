@@ -18,6 +18,7 @@ $objHTML->RenderHeader();
     <link rel="stylesheet" href="/CSS/contactanos.css">
 </head>
 <body>
+ <!-- Foto de fondo con el ancho de pantalla completo -->
 <div class="hero">
         <div class="overlay"></div>
         <div class="content">
@@ -28,6 +29,7 @@ $objHTML->RenderHeader();
 
     <br><br>
 
+<!--Formulario para contactar-->
     <h3>Cuéntanos en qué podemos ayudarte</h3>
 
     <form action="/enviar-formulario" method="POST" class="formulario">
@@ -44,12 +46,14 @@ $objHTML->RenderHeader();
         <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
 
+<!--Botón para ver la política de privacidad usando una ventana emergente de boostrap-->
     <button type="button" class="btn btn-privacy" data-bs-toggle="modal" data-bs-target="#politicaModal">
       Ver Política de Privacidad
     </button>
 
     <br><br>
 
+    <!--Checkbox de la politica de privacidad-->
     <div class="form-check">
     <input class="form-check-input" type="checkbox" id="aceptoPolitica">
     <label class="form-check-label" for="aceptoPolitica">
@@ -59,6 +63,7 @@ $objHTML->RenderHeader();
 
     <button type="submit" class="btn btn-custom mt-2" id="enviar">Enviar</button>
 
+    <!--Ventana emergente para la política de privacidad-->
     <div class="modal fade" id="politicaModal" tabindex="-1" aria-labelledby="politicaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -8,6 +8,7 @@ $objHTML->RenderHeader();
 
 <br><br><br><br><br><br>
 
+<!--Carrusel con las fotos de nuestros artistas-->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -32,7 +33,8 @@ $objHTML->RenderHeader();
 
 <br><br>
 
-    
+
+<!--Sección con información variada-->    
 <section class="music-section text-center text-white py-5" style="background-color: #111;">
     <div class="container">
         <h2 class="fw-bold">DONDE VIVE LA MÚSICA</h2>
@@ -49,6 +51,7 @@ $objHTML->RenderHeader();
     </div>
 </section>
 
+<!--Sección con las canciones destacadas-->
 <section class="container my-5 text-center text-white py-5" style="background-color: #111;">
     <h2 class="section-title text-white">Canciones destacadas</h2>
     
@@ -159,6 +162,7 @@ $objHTML->RenderHeader();
     </div>
 </section>
 
+<!--Sección de algunas novedades con enlaces-->
 <div id="novedades" class="container novedades-section text-center text-white py-5" style="background-color: #111;">
     <h2 class="section-title text-center text-white py-5">Novedades</h2>
     <div class="row">
