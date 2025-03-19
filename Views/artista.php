@@ -7,38 +7,66 @@ include_once("../Librerias/mysql.php");
 
 if (isset($_GET['artista'])) {
     $artistaId = $_GET['artista'];
-    //Consulta para artista
+
+    // Consulta para artista
     $consultaArtistas = "SELECT * FROM `artistas` WHERE id=" . "$artistaId" . ";";
     $resultado = Conexion($consultaArtistas);
-
-    mysqli_data_seek($resultado, 0);
-
     $artista = mysqli_fetch_array($resultado);
 
-    $objArtista = new artista($artista['nombre'], $artista['foto'], $artista['descripcion'], $artista['id'], $artista['instagram'], $artista['youtube'], $artista['facebook'], $artista['X'], $artista['spotify'], $artista['deezer'], $artista['tidal'], $artista['music'], $artista['videoclip']);
+    $objArtista = new artista(
+        $artista['nombre'],
+        $artista['foto'],
+        $artista['descripcion'],
+        $artista['id'],
+        $artista['instagram'],
+        $artista['youtube'],
+        $artista['facebook'],
+        $artista['X'],
+        $artista['spotify'],
+        $artista['deezer'],
+        $artista['tidal'],
+        $artista['music'],
+        $artista['videoclip']
+    );
 
-
-
-    //Consulta para canciones
+    // Consulta para canciones
     $consultaCancion = "SELECT * FROM `canciones` WHERE idArtista=" . "$artistaId" . ";";
     $canciones = Conexion($consultaCancion);
     $arrayObjCancion = [];
     foreach ($canciones as $cancion) {
-        $objCancion = new Canciones($cancion['id'], $cancion['nombre'], $cancion['foto'], $cancion['reproducciones'], $cancion['idArtista']);
+        $objCancion = new Canciones(
+            $cancion['id'],
+            $cancion['nombre'],
+            $cancion['foto'],
+            $cancion['reproducciones'],
+            $cancion['idArtista']
+        );
         array_push($arrayObjCancion, $objCancion);
     }
 
-    //Consultas para album
+    // Consulta para álbumes
     $consultaAlbum = "SELECT * FROM `albumes` WHERE idArtista=" . "$artistaId" . ";";
     $albumes = Conexion($consultaAlbum);
     $arrayObjAlbum = [];
+
     foreach ($albumes as $album) {
-        $objAlbum = new Album($album['id'], $album['nombre'], $album['duracion'], $album['foto'], $album['fechaLanzamiento'], $album['idArtista']);
+        $duracion = isset($album['duracion']) ? $album['duracion'] : '00:00'; // Valor por defecto
+        $objAlbum = new Album(
+            $album['id'],
+            $album['nombre'],
+            $duracion,
+            $album['foto'],
+            $album['fechaLanzamiento'],
+            $album['idArtista']
+        );
         array_push($arrayObjAlbum, $objAlbum);
     }
 } else {
     $artistaId = null;
 }
+?>
+
+
 
 
 ?>
