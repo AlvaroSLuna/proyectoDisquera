@@ -37,7 +37,7 @@ class RenderHTML
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Novedades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index.php#novedades">Novedades</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="artistasDropdown" role="button"
                             data-bs-toggle="dropdown">Artistas</a>
@@ -65,7 +65,7 @@ class RenderHTML
         <div>
             <a href="#" class="text-white me-3">Facebook</a>
             <a href="#" class="text-white me-3">Twitter</a>
-            <a href="#" class="text-white">Instagram</a>
+            <a href="#" class="text-white">Instagram</a> <br>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         </footer>
